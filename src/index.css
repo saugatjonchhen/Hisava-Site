@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-sans: 'Outfit', sans-serif;
+
+  /* Colors */
+  --color-primary: #10B981;
+  /* Emerald */
+  --color-secondary: #065F46;
+  /* Forest Green */
+  --color-tertiary: #F43F5E;
+  /* Rose */
+
+  --color-background-light: #F0FDF4;
+  /* Very Pale Green */
+  --color-background-dark: #0F1715;
+  /* Deep Charcoal with Emerald hint */
+
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #1B2421;
+  /* Dark Surface with subtle green tint */
+
+  --color-text-primary-light: #1A1A1A;
+  --color-text-primary-dark: #E0E0E0;
+
+  --color-text-secondary-light: #757575;
+  --color-text-secondary-dark: #A0A0A0;
+
+  --color-success: #10B981;
+  --color-warning: #FBBF24;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Semantic Aliases */
+  --color-brand: var(--color-primary);
+  --color-brand-foreground: #ffffff;
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+/* Base Styles */
+@layer base {
+  :root {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Light Mode Default */
+    --color-bg-default: var(--color-background-light);
+    --color-bg-surface: var(--color-surface-light);
+    --color-text-main: var(--color-text-primary-light);
+    --color-text-muted: var(--color-text-secondary-light);
+
+    color: var(--color-text-main);
+    background-color: var(--color-bg-default);
+  }
+
+  /* Dark Mode Override - Applied via .dark class on html/body */
+  &.dark,
+  .dark {
+    --color-bg-default: var(--color-background-dark);
+    --color-bg-surface: var(--color-surface-dark);
+    --color-text-main: var(--color-text-primary-dark);
+    --color-text-muted: var(--color-text-secondary-dark);
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
